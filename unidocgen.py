@@ -2,7 +2,7 @@ from enum import Enum
 from wcwidth import wcswidth
 import shlex
 
-class UNIDOCGEN_LINE_TYPE(list, Enum):
+class UNIDOCGEN_CODEBOX_LINE_TYPE(list, Enum):
     SINGLE_LIGHT = ["┌", "┐", "└", "┘", "─", "│", "├", "┤", "┬", "┴", "┼"]
     SINGLE_LIGHT_DOUBLE_CORNERS = ["╔", "╗", "╚", "╝", "─", "│", "├", "┤", "┬", "┴", "┼"]
     SINGLE_HEAVY = ["┏", "┓", "┗", "┛", "━", "┃", "┣", "┫", "┳", "┻", "╋"]
@@ -14,11 +14,19 @@ class UNIDOCGEN_COMPACT_TITLE_TYPE(str, Enum):
     HEAVY = "▓"
     FULL = "█"
 
+class UNIDOCGEN_LINE_TYPE(list, Enum):
+    SINGLE_LIGHT_SQUARE = ["[","─","]"]
+    SINGLE_HEAVY_SQUARE = ["[","━","]"]
+    DOUBLE_LIGHT_SQUARE = ["[","═","]"]
+    SINGLE_LIGHT_ARROW = ["<","─",">"]
+    SINGLE_HEAVY_ARROW = ["<","━",">"]
+    DOUBLE_LIGHT_ARROW = ["<","═",">"]
+
 global_variables = {}
 
 def display_width_for_box(string: str, tab_size: int = 4) -> int: return wcswidth(string.expandtabs(tab_size))
 
-def box_for_code(content: str, width: int, line_type: UNIDOCGEN_LINE_TYPE, string_tab: str, line_number: int, tab_size: int = 4):
+def box_for_code(content: str, width: int, line_type: UNIDOCGEN_CODEBOX_LINE_TYPE, string_tab: str, line_number: int, tab_size: int = 4):
     if(width < 0):
         width = max(display_width_for_box(line, tab_size) for line in content.split('\n'))
     
@@ -87,17 +95,17 @@ def parse_box_of_code(params, code_block):
             line_number = -1
     except:
         pass
-    line_type = UNIDOCGEN_LINE_TYPE.SINGLE_LIGHT
+    line_type = UNIDOCGEN_CODEBOX_LINE_TYPE.SINGLE_LIGHT
     try:
         line_choice = params["LINE_TYPE"]
         if(line_choice == "SINGLE"):
-            line_type = UNIDOCGEN_LINE_TYPE.SINGLE_LIGHT
+            line_type = UNIDOCGEN_CODEBOX_LINE_TYPE.SINGLE_LIGHT
         elif(line_choice == "DOUBLE"):
-            line_type = UNIDOCGEN_LINE_TYPE.DOUBLE_LIGHT
+            line_type = UNIDOCGEN_CODEBOX_LINE_TYPE.DOUBLE_LIGHT
         elif(line_choice == "SINGLE_HEAVY"):
-            line_type = UNIDOCGEN_LINE_TYPE.SINGLE_HEAVY
+            line_type = UNIDOCGEN_CODEBOX_LINE_TYPE.SINGLE_HEAVY
         elif(line_choice == "SINGLE_CORNERS"):
-            line_type = UNIDOCGEN_LINE_TYPE.SINGLE_LIGHT_DOUBLE_CORNERS
+            line_type = UNIDOCGEN_CODEBOX_LINE_TYPE.SINGLE_LIGHT_DOUBLE_CORNERS
     except:
         pass  
     tab = ""
