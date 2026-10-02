@@ -145,10 +145,9 @@ def parse_params(line):
             pass
     return d
 
-def add_global_variable(line):
-    name = line.replace("^UNIDOCGEN_GLOBAL_","").split(' ')[0][:-1]
-    value = ' '.join(line.replace("^UNIDOCGEN_GLOBAL_","").split(' ')[1:])
-    global_variables[name] = value
+def add_global_variable(params):
+    global global_variables
+    global_variables = global_variables | params
 
 def generate_doc(x, y):
     try:
@@ -183,8 +182,9 @@ def generate_doc(x, y):
                 title_block += content[i] + "\n"
                 i += 1
             final += parse_title(params, title_block)
-        elif "^UNIDOCGEN_GLOBAL_" in line:
-            add_global_variable(line)
+        elif "^UNIDOCGEN_GLOBAL_VARIABLE" in line:
+            params = parse_params(content[i])
+            add_global_variable(params)
         else:
             final += line + '\n'
         i += 1
