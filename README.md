@@ -2,6 +2,7 @@
 - Put everything the same width
 - Add table of content with random hex values for anchors (easy search with Ctrl+F)
 - Add `<br>` line style
+- Recode parsing functions because it's written like shit (but it works)
 
 # Global variables
 
