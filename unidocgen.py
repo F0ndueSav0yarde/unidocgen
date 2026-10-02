@@ -14,7 +14,7 @@ class UNIDOCGEN_COMPACT_TITLE_TYPE(str, Enum):
     HEAVY = "▓"
     FULL = "█"
 
-class UNIDOCGEN_LINE_TYPE(list, Enum):
+class UNIDOCGEN_SEPARATOR_TYPE(list, Enum):
     SINGLE_LIGHT_SQUARE = ["[","─","]"]
     SINGLE_HEAVY_SQUARE = ["[","━","]"]
     DOUBLE_LIGHT_SQUARE = ["[","═","]"]
