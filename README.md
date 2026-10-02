@@ -1,7 +1,7 @@
 # TODO
 - Put everything the same width
 - Add table of content with random hex values for anchors (easy search with Ctrl+F)
-- Add <br> line style
+- Add `<br>` line style
 
 # Global variables
 
