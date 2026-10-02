@@ -1,0 +1,16 @@
+^UNIDOCGEN_GLOBAL_TITLEWIDTH^ 100
+^UNIDOCGEN_COMPACT_TITLE_START^ TITLE_TYPE=MEDIUM WIDTH=TITLEWIDTH
+This is a title
+This is a subtitle
+This is another subtitle
+^UNIDOCGEN_COMPACT_TITLE_END^
+
+^UNIDOCGEN_BOX_CODE_START^ LINE_TYPE=LIGHT LINE_NUMBER=1 TAB="test.c" 
+#include <stdio.h>
+
+int main(int argc, char *argv[])
+{
+    printf("This is some code\n");
+    return 0;
+}
+^UNIDOCGEN_BOX_CODE_END^
