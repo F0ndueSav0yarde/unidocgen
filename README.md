@@ -7,15 +7,15 @@
 
 - Tokens : 
 ```
-^UNIDOCGEN_GLOBAL_XXX^
-
-(XXX is the name of the global variable)
+^UNIDOCGEN_GLOBAL_VARIABLE^
 ```
 
 - Params : 
 
 ```
-Anything, considered as the value of the global variable
+NAME=VALUE
+
+Where NAME is the name of the variable to initialize and VALUE is its value, in any type
 ```
 
 # Block of code
