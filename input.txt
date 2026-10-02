@@ -5,6 +5,8 @@ This is a subtitle
 This is another subtitle
 ^UNIDOCGEN_COMPACT_TITLE_END^
 
+^UNIDOCGEN_SEPARATOR^ LINE_TYPE=LIGHT
+
 ^UNIDOCGEN_BOX_CODE_START^ LINE_TYPE=LIGHT LINE_NUMBER=1 TAB="test.c" 
 #include <stdio.h>
 
